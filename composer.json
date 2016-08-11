@@ -1,14 +1,14 @@
 {
-  "name": "getcourse/api-sdk-php",
+  "name": "azatonskiy/GetCourse-PHP-SDK",
   "description": "GetCourse's PHP SDK for APIs",
   "keywords": ["getcourse", "api", "sdk"],
   "type": "library",
   "license": "Apache2",
-  "homepage": "http://getcourse.github.io/GetCourse-PHP-SDK/",
+  "homepage": "https://github.com/azatonskiy/GetCourse-PHP-SDK",
   "authors": [
     {
-      "name": "GetCourse",
-      "homepage": "https://github.com/getcourse/api-sdk-php/contributors"
+      "name": "GetCourse API",
+      "homepage": "https://github.com/azatonskiy/GetCourse-PHP-SDK"
     }
   ],
   "require": {
@@ -22,3 +22,4 @@
     }
   }
 }
+
