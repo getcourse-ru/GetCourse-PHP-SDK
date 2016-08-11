@@ -23,7 +23,6 @@ class User extends Model
 	 */
 	public function setEmail($email) {
 		$this->user['email'] = $email;
-		//$this->overloadProperty($this->user, 'email', $email);
 		return $this;
 	}
 
@@ -33,12 +32,7 @@ class User extends Model
 	 * @return $this
 	 */
 	public function setPhone($phone) {
-		$tmp = [];
-		if(isset($this->user)) {
-			$tmp = $this->user;
-		}
-		$tmp['phone'] = $phone;
-		$this->user = $tmp;
+		$this->user['phone'] = $phone;
 		return $this;
 	}
 
@@ -48,12 +42,7 @@ class User extends Model
 	 * @return $this
 	 */
 	public function setFirstName($first_name) {
-		$tmp = [];
-		if(isset($this->user)) {
-			$tmp = $this->user;
-		}
-		$tmp['first_name'] = $first_name;
-		$this->user = $tmp;
+		$this->user['first_name'] = $first_name;
 		return $this;
 	}
 
@@ -93,12 +82,7 @@ class User extends Model
 	 * @return $this
 	 */
 	public function setCreatedAt($created_at) {
-		$tmp = [];
-		if(isset($this->user)) {
-			$tmp = $this->user;
-		}
-		$tmp['created_at'] = $created_at;
-		$this->user = $tmp;
+		$this->user['created_at'] = $created_at;
 		return $this;
 	}
 
@@ -109,12 +93,7 @@ class User extends Model
 	 * @return $this
 	 */
 	public function setAddField($name, $value) {
-		$tmp = [];
-		if(isset($this->addfields)) {
-			$tmp = $this->addfields;
-		}
-		$tmp[] = [$name=>$value];
-		$this->addfields = $tmp;
+		$this->user['addfields'][$name] = $value;
 		return $this;
 	}
 
@@ -215,14 +194,4 @@ class User extends Model
 	public function apiCall( $action ) {
 		return $this->executeCall(self::getUrl().'users', $action);
 	}
-
-	private function overloadProperty(&$property, $key, $value) {
-		$tmp = [];
-		if(isset($property)) {
-			$tmp = $property;
-		}
-		$tmp[$key] = $value;
-		$property = $tmp;
-	}
-
 }

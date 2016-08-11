@@ -13,6 +13,7 @@ try {
 		->setEmail('vasiliy.pupkin@getcourse.ru')
 		->setFirstName('Василий')
 		->setLastName('Пупкин')
+		->setAddField('Почтовый адрес', 'New Васюки')
 		->setOverwrite()
 		->setSessionReferer('http://getcourse.ru')
 		->apiCall($action = 'add');
