@@ -1,9 +1,9 @@
 # GetCourse-PHP-SDK
 Библиотека [GetCourse.ru](http://getcourse.ru) для доступа к API
 
-License: MIT
+Лицензия: Apache2
 
-Requirements:
+Системные требования:
 
   * PHP 5.4+
   * PHP cURL extension с поддержкой SSL (обычно включена).
