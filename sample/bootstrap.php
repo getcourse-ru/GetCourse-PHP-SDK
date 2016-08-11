@@ -22,6 +22,3 @@ date_default_timezone_set(@date_default_timezone_get());
 // Включаем error_reporting
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-
-// Замените токен на сгенерированный вашим аккаунтом (http://{your_account}.getcourse.ru/saas/account/api)
-$key = '0IEa3f6Hy7e2aMsbf3d5jxNj7lECyFRSKlHcfCwHjhNqkjG5Ho0Tsaazj2JHNoubOUWv7QHpgCC8ARMM8rn2xwfv6xs7y5pZ6q3UZkmuLnucBdkYOSssH0bivRHRsRD7';

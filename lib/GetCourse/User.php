@@ -22,7 +22,8 @@ class User extends Model
 	 * @return $this
 	 */
 	public function setEmail($email) {
-		$this->overloadProperty($this->user, 'email', $email);
+		$this->user['email'] = $email;
+		//$this->overloadProperty($this->user, 'email', $email);
 		return $this;
 	}
 

@@ -14,7 +14,7 @@ class Core
 			throw new FormatError;
 		}
 
-		if($access_token !== NULL) {
+		if(!$access_token) {
 			throw new TokenError;
 		}
 
@@ -32,8 +32,8 @@ class Core
 		curl_setopt ($curl, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl, CURLOPT_HEADER, 0);
 		//curl_setopt($curl, CURLOPT_VERBOSE, 1);
-		curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, true);
-		curl_setopt ($curl, CURLOPT_SSL_VERIFYHOST, 2);
+		curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt ($curl, CURLOPT_SSL_VERIFYHOST, 0);
 		$body = curl_exec ($curl);
 
 		$result = new \StdClass();

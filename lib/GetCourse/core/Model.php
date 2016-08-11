@@ -8,8 +8,12 @@ namespace GetCourse\core;
  */
 class Model
 {
-
-	private static $_propMap = array();
+	private $_propMap = array(
+		'user'=>[],
+		'system'=>[],
+		'session'=>[],
+		'deal'=>[],
+	);
 
 	/*
 	 * Секретный ключ
@@ -41,7 +45,7 @@ class Model
 	 * @param $key
 	 * @return mixed
 	 */
-	public function __get($key)
+	public function &__get($key)
 	{
 		if ($this->__isset($key)) {
 			return $this->_propMap[$key];
