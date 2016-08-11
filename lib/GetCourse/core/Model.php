@@ -14,11 +14,11 @@ class Model
 	/*
 	 * Секретный ключ
 	 */
-	private static $accessToken;
+	private static $accessToken = 0;
 	/*
 	 * Название аккаунта GetCourse
 	 */
-	private static $accountName;
+	private static $accountName = '';
 
 	public static function setAccessToken($accessToken)	{
 		self::$accessToken = $accessToken;
@@ -94,6 +94,9 @@ class Model
 	private function _convertToArray($param)
 	{
 		$ret = array();
+		if (!$param || empty($param)) {
+			return $ret;
+		}
 		foreach ($param as $k => $v) {
 			if ($v instanceof Model) {
 				$ret[$k] = $v->toArray();
@@ -151,10 +154,10 @@ class Model
 	 */
 	protected function executeCall($url, $action)
 	{
-		if(!self::$access_token) {
+		if(!self::$accessToken) {
 			throw new \Exception("Access token not supplied");
 		}
 
-		return Core::sendRequest($url, $action, $this->toArray(), self::$access_token);
+		return Core::sendRequest($url, $action, $this->toArray(), self::$accessToken);
 	}
 }

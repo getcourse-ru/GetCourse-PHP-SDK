@@ -8,8 +8,8 @@ $user::setAccessToken($key);
 
 try {
 	$result = $user
-	/*	->setEmail('vasiliy.pupkin@getcourse.ru')
-		->setFirstName('Василий')
+		->setEmail('vasiliy.pupkin@getcourse.ru')
+	/*	->setFirstName('Василий')
 		->setLastName('Пупкин')
 		->setOverwrite()
 		->setSessionReferer('http://getcourse.ru')*/

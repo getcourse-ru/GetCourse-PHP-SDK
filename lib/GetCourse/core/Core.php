@@ -1,16 +1,21 @@
 <?php
 namespace GetCourse\core;
 
+
+use GetCourse\core\exceptions\FormatError;
+use GetCourse\core\exceptions\ServerError;
+use GetCourse\core\exceptions\TokenError;
+
 class Core
 {
 	public static function sendRequest($url, $action, $params = array(), $access_token = NULL) {
 
 		if(strpos($url, "https") === false) {
-			throw new Exceptions\FormatError;
+			throw new FormatError;
 		}
 
 		if($access_token !== NULL) {
-			throw new Exceptions\TokenError;
+			throw new TokenError;
 		}
 
 		$curl = curl_init($url);
@@ -42,17 +47,14 @@ class Core
 	protected static function processResult($result) {
 		switch ($result->status_code) {
 			case 400:
-				throw new Exceptions\FormatError;
+				throw new FormatError();
 				break;
 			case 401:
-				throw new Exceptions\TokenError;
-				break;
-			case 403:
-				throw new Exceptions\ScopeError;
+				throw new TokenError();
 				break;
 			default:
 				if($result->status_code >= 500) {
-					throw new Exceptions\ServerError($result->status_code);
+					throw new ServerError($result->status_code);
 				}
 				else {
 					return json_decode($result->body);

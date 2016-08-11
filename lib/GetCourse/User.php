@@ -15,11 +15,6 @@ use GetCourse\core\Model;
  */
 class User extends Model
 {
-	public function __construct() {
-		$this->user = [];
-		$this->session = [];
-		$this->system = [];
-	}
 
 	/**
 	 * Email пользователя
@@ -27,7 +22,7 @@ class User extends Model
 	 * @return $this
 	 */
 	public function setEmail($email) {
-		$this->user['email'] = $email;
+		$this->overloadProperty($this->user, 'email', $email);
 		return $this;
 	}
 
@@ -37,7 +32,12 @@ class User extends Model
 	 * @return $this
 	 */
 	public function setPhone($phone) {
-		$this->user['phone'] = $phone;
+		$tmp = [];
+		if(isset($this->user)) {
+			$tmp = $this->user;
+		}
+		$tmp['phone'] = $phone;
+		$this->user = $tmp;
 		return $this;
 	}
 
@@ -47,7 +47,12 @@ class User extends Model
 	 * @return $this
 	 */
 	public function setFirstName($first_name) {
-		$this->user['first_name'] = $first_name;
+		$tmp = [];
+		if(isset($this->user)) {
+			$tmp = $this->user;
+		}
+		$tmp['first_name'] = $first_name;
+		$this->user = $tmp;
 		return $this;
 	}
 
@@ -87,7 +92,12 @@ class User extends Model
 	 * @return $this
 	 */
 	public function setCreatedAt($created_at) {
-		$this->user['created_at'] = $created_at;
+		$tmp = [];
+		if(isset($this->user)) {
+			$tmp = $this->user;
+		}
+		$tmp['created_at'] = $created_at;
+		$this->user = $tmp;
 		return $this;
 	}
 
@@ -98,10 +108,12 @@ class User extends Model
 	 * @return $this
 	 */
 	public function setAddField($name, $value) {
-		if(!isset($this->addfields)) {
-			$this->addfields = [];
+		$tmp = [];
+		if(isset($this->addfields)) {
+			$tmp = $this->addfields;
 		}
-		$this->addfields[] = [$name=>$value];
+		$tmp[] = [$name=>$value];
+		$this->addfields = $tmp;
 		return $this;
 	}
 
@@ -201,6 +213,15 @@ class User extends Model
 	 */
 	public function apiCall( $action ) {
 		return $this->executeCall(self::getUrl().'users', $action);
+	}
+
+	private function overloadProperty(&$property, $key, $value) {
+		$tmp = [];
+		if(isset($property)) {
+			$tmp = $property;
+		}
+		$tmp[$key] = $value;
+		$property = $tmp;
 	}
 
 }
