@@ -15,7 +15,7 @@
 
 ```
 "require": {
-  "getcourse/GetCourse-PHP-SDK": "1.1.*"
+  "getcourse-ru/GetCourse-PHP-SDK": "1.1.*"
 }
 ```
 ##Пример использования
