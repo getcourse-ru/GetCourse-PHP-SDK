@@ -6,6 +6,7 @@ use GetCourse\core\Model;
 
 /**
  * Класс User
+ * для добавления пользователя
  *
  * @package GetCourse
  *
@@ -92,7 +93,7 @@ class User extends Model
 	 * @param $value
 	 * @return $this
 	 */
-	public function setAddField($name, $value) {
+	public function setUserAddField($name, $value) {
 		$this->user['addfields'][$name] = $value;
 		return $this;
 	}

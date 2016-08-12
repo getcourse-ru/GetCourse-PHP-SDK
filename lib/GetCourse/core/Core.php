@@ -6,6 +6,10 @@ use GetCourse\core\exceptions\FormatError;
 use GetCourse\core\exceptions\ServerError;
 use GetCourse\core\exceptions\TokenError;
 
+/**
+ * Class Core
+ * @package GetCourse\core
+ */
 class Core
 {
 	public static function sendRequest($url, $action, $params = array(), $access_token = NULL) {

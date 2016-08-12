@@ -1,21 +1,25 @@
 <?php
 include 'bootstrap.php';
 
-$user = new \GetCourse\User();
+$deal = new \GetCourse\Deal();
 
 // Замените на ваш аккаунт
-$user::setAccountName('account_name');
+$deal::setAccountName('account_name');
 // Замените токен на сгенерированный вашим аккаунтом (http://{your_account}.getcourse.ru/saas/account/api)
-$user::setAccessToken('secret_key');
+$deal::setAccessToken('secret_key');
 
 try {
-	$result = $user
+	$result = $deal
 		->setEmail('vasiliy.pupkin@getcourse.ru')
 		->setFirstName('Василий')
 		->setLastName('Пупкин')
 		->setUserAddField('Почтовый адрес', 'New Васюки')
 		->setOverwrite()
 		->setSessionReferer('http://getcourse.ru')
+		->setProductTitle('Как заработать первый доллар')
+		->setDealNumber('30046')
+		->setDealCost(64.24)
+		->setDealAddField('Таможенная стоимость', '10')
 		->apiCall($action = 'add');
 } catch (Exception $e) {
 	echo $e->getMessage();
