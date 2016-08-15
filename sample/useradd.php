@@ -18,6 +18,8 @@ try {
 		->setFirstName('Василий')
 		->setLastName('Пупкин')
 		->setUserAddField('Почтовый адрес', 'New Васюки')
+		->setGroup('шахматисты')
+		->setGroup('дилетанты')
 		->setOverwrite()
 		->setSessionReferer('http://getcourse.ru')
 		->apiCall($action = 'add');

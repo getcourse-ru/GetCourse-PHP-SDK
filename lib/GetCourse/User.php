@@ -99,6 +99,16 @@ class User extends Model
 	}
 
 	/**
+	 * Добавляет группы пользователя
+	 * @param $group
+	 * @return $this
+	 */
+	public function setGroup( $group ) {
+		$this->user['group_name'][] = $group;
+		return $this;
+	}
+
+	/**
 	 * Разрешить перезаписывать пользователя если он существует
 	 * @return $this
 	 */
