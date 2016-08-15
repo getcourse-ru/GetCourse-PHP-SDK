@@ -1,16 +1,9 @@
+#!/usr/bin/env php
 <?php
-include 'bootstrap.php';
+require_once __DIR__.'/../sample/bootstrap.php';
 
-/*
- * Если вы не пользуетесь composer, то можно использовать include
-include './lib/GetCourse/core/Core.php';
-include './lib/GetCourse/core/Model.php';
-include './lib/GetCourse/core/exceptions/FormatError.php';
-include './lib/GetCourse/core/exceptions/ServerError.php';
-include './lib/GetCourse/core/exceptions/TokenError.php';
-include './lib/GetCourse/User.php';
-include './lib/GetCourse/Deal.php';
-*/
+// Если вы не пользуетесь composer, то можно использовать include
+// require_once __DIR__.'/../lib/GetCourse/autoload.php';
 
 $user = new \GetCourse\User();
 
