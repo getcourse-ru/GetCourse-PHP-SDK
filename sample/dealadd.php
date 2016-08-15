@@ -1,6 +1,17 @@
 <?php
 include 'bootstrap.php';
 
+/*
+ * Если вы не пользуетесь composer, то можно использовать include
+include './lib/GetCourse/core/Core.php';
+include './lib/GetCourse/core/Model.php';
+include './lib/GetCourse/core/exceptions/FormatError.php';
+include './lib/GetCourse/core/exceptions/ServerError.php';
+include './lib/GetCourse/core/exceptions/TokenError.php';
+include './lib/GetCourse/User.php';
+include './lib/GetCourse/Deal.php';
+*/
+
 $deal = new \GetCourse\Deal();
 
 // Замените на ваш аккаунт
