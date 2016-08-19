@@ -13,6 +13,7 @@ class Model
 		'system'=>[],
 		'session'=>[],
 		'deal'=>[],
+		'message'=>[],
 	);
 
 	/*

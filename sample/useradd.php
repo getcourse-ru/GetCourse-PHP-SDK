@@ -2,7 +2,7 @@
 <?php
 require_once __DIR__.'/../sample/bootstrap.php';
 
-// Если вы не пользуетесь composer, то можно использовать include
+// Если вы не используете composer, то можно использовать include
 // require_once __DIR__.'/../lib/GetCourse/autoload.php';
 
 $user = new \GetCourse\User();
