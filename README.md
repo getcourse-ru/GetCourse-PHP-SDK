@@ -67,6 +67,20 @@ curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}
 Для добавления сделки необходимо передать действие add, секретный ключ и параметры добавляемого пользователя и сделки:
 curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}.getcourse.dev/pl/api/deals" --data "action=add&key={secret_key}&params={params}"
 Параметры сделки должны включать параметры пользователя и дополнительно параметры сделки с ключом deal
+##Формат вызова отправки сообщения
+Отправка сообщения находится по адресу https://{account_name}.getcourse.ru/pl/api/messages
+Для добавления сделки необходимо передать действие send, секретный ключ и параметры отправляемого сообщения:
+curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}.getcourse.dev/pl/api/deals" --data "action=add&key={secret_key}&params={params}"
+Параметры отправляемого мообщения должны включать:
+		base64_encode(
+			{
+				{"message":{
+					"email":{email пользователя},
+					"transport":{тип транспорта, поддерживаемые: "email"},
+					"mailing_id":{id рассылки},
+					"params":{"поле шаблона":{значение},} //можно переопределить поля шаблона, например first_name
+				},
+			});
 ##Формат ответа
 Ответ возвращается в формате JSON:
 
