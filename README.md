@@ -41,8 +41,12 @@ curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}
 				{"user":{
 					"email":{email},
 					"phone":{телефон},
-					//... другие параметры пользователя
-					"addfields":{"Доп. поле":{значение},}
+					"first_name":{имя},
+					"last_name":{фамилия},
+					"city":{город},
+					"country":{страна},
+					"group_name":{"Группа",}, // для добавления пользователя в группу
+					"addfields":{"Доп. поле":{значение},} // для добавления дополнительных полей пользователя
 				},
 				"system":{
 					"refresh_if_exists":{1/0}, // обновлять ли существующего пользователя
@@ -66,7 +70,53 @@ curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}
 Импорт сделки находится по адресу https://{account_name}.getcourse.ru/pl/api/deals
 Для добавления сделки необходимо передать действие add, секретный ключ и параметры добавляемого пользователя и сделки:
 curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}.getcourse.dev/pl/api/deals" --data "action=add&key={secret_key}&params={params}"
-Параметры сделки должны включать параметры пользователя и дополнительно параметры сделки с ключом deal
+Параметры сделки должны включать параметры пользователя и дополнительно параметры сделки с ключом deal:
+
+		base64_encode(
+			{
+				{"user":{
+					// как в импорте пользователя
+				},
+				"system":{
+					// как в импорте пользователя
+				},
+				"session":{
+					// как в импорте пользователя
+				},
+				"deal":{
+					"deal_number":{номер заказа},
+					"offer_code":{уникальный код предложения},
+					"product_title":{наименование предложения},
+					"product_description":{описание предложения},
+					"quantity":{кол-во},
+					"deal_cost":{сумма заказа},
+					"deal_is_paid":{оплачен да/нет}
+					"manager_email":{email менеджера},
+					"deal_created_at":{дата заказа},
+					"deal_finished_at":{дата оплаты/завершения заказа},
+					"deal_comment":{комментарий},
+					"payment_type":{тип платежа из списка},
+					"payment_status":{статус платежа из списка},
+					"addfields":{"Доп. поле":{значение},} // для добавления дополнительных полей заказа
+				},
+			});
+			
+##Формат вызова отправки сообщения
+Отправка сообщения находится по адресу https://{account_name}.getcourse.ru/pl/api/messages
+Для добавления сделки необходимо передать действие send, секретный ключ и параметры отправляемого сообщения:
+curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}.getcourse.dev/pl/api/deals" --data "action=add&key={secret_key}&params={params}"
+Параметры отправляемого мообщения должны включать:
+
+		base64_encode(
+			{
+				{"message":{
+					"email":{email пользователя},
+					"transport":{тип транспорта, поддерживаемые: "email"},
+					"mailing_id":{id рассылки},
+					"params":{"поле шаблона":{значение},} //можно переопределить поля шаблона, например first_name
+				},
+			});
+		
 ##Формат ответа
 Ответ возвращается в формате JSON:
 
