@@ -54,7 +54,7 @@ class Deal extends User
 	 * @return $this
 	 */
 	public function setDateCreated($date_created_at) {
-		$this->deal['date_created_at'] = $date_created_at;
+		$this->deal['deal_created_at'] = $date_created_at;
 		return $this;
 	}
 
@@ -64,7 +64,7 @@ class Deal extends User
 	 * @return $this
 	 */
 	public function setDateFinished($date_finished_at) {
-		$this->deal['date_finished_at'] = $date_finished_at;
+		$this->deal['deal_finished_at'] = $date_finished_at;
 		return $this;
 	}
 
