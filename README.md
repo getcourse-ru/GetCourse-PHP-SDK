@@ -92,8 +92,8 @@ curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}
 					"deal_cost":{сумма заказа},
 					"deal_is_paid":{оплачен да/нет}
 					"manager_email":{email менеджера},
-					"date_created_at":{дата заказа},
-					"date_finished_at":{дата оплаты/завершения заказа},
+					"deal_created_at":{дата заказа},
+					"deal_finished_at":{дата оплаты/завершения заказа},
 					"deal_comment":{комментарий},
 					"payment_type":{тип платежа из списка},
 					"payment_status":{статус платежа из списка},
