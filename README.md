@@ -38,31 +38,30 @@ curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}
 
 		base64_encode(
 			{
-				{"user":{
-					"email":{email},
-					"phone":{телефон},
-					"first_name":{имя},
-					"last_name":{фамилия},
-					"city":{город},
-					"country":{страна},
-					"group_name":{"Группа",}, // для добавления пользователя в группу
-					"addfields":{"Доп. поле":{значение},} // для добавления дополнительных полей пользователя
+				"user":{
+					"email":"email",
+					"phone":"телефон",
+					"first_name":"имя",
+					"last_name":"фамилия",
+					"city":"город",
+					"country":"страна",
+					"group_name":{"Группа1","Группа2"}, // для добавления пользователя в группу
+					"addfields":{"Доп.поле1":"значение","Доп.поле2":"значение"} // для добавления дополнительных полей пользователя
 				},
 				"system":{
-					"refresh_if_exists":{1/0}, // обновлять ли существующего пользователя
-					"partner_email":{email партнера}
+					"refresh_if_exists":0, // обновлять ли существующего пользователя 1/0 да/нет
+					"partner_email":"email партнера"
 				},
 				"session":{
-					"utm_source":{},
-					"utm_medium":{},
-					"utm_content":{},
-					"utm_campaign":{},
-					"utm_group":{},
-					"gcpc":{},
-					"gcao":{},
-					"referer":{},
-					//... другие параметры сессии
-				},
+					"utm_source":"",
+					"utm_medium":"",
+					"utm_content":"",
+					"utm_campaign":"",
+					"utm_group":"",
+					"gcpc":"",
+					"gcao":"",
+					"referer":"",
+				}
 			});
 			
 
@@ -74,7 +73,7 @@ curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}
 
 		base64_encode(
 			{
-				{"user":{
+				"user":{
 					// как в импорте пользователя
 				},
 				"system":{
@@ -84,53 +83,53 @@ curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}
 					// как в импорте пользователя
 				},
 				"deal":{
-					"deal_number":{номер заказа},
-					"offer_code":{уникальный код предложения},
-					"product_title":{наименование предложения},
-					"product_description":{описание предложения},
-					"quantity":{кол-во},
-					"deal_cost":{сумма заказа},
-					"deal_is_paid":{оплачен да/нет}
-					"manager_email":{email менеджера},
-					"deal_created_at":{дата заказа},
-					"deal_finished_at":{дата оплаты/завершения заказа},
-					"deal_comment":{комментарий},
-					"payment_type":{тип платежа из списка},
-					"payment_status":{статус платежа из списка},
-					"addfields":{"Доп. поле":{значение},} // для добавления дополнительных полей заказа
-				},
+					"deal_number":"номер заказа",
+					"offer_code":"уникальный код предложения",
+					"product_title":"наименование предложения",
+					"product_description":"описание предложения",
+					"quantity":1, // количество
+					"deal_cost":"сумма заказа",
+					"deal_is_paid":"оплачен да/нет"
+					"manager_email":"email менеджера",
+					"deal_created_at":"дата заказа",
+					"deal_finished_at":"дата оплаты/завершения заказа",
+					"deal_comment":"комментарий",
+					"payment_type":"тип платежа из списка",
+					"payment_status":"статус платежа из списка",
+					"addfields":{"Доп.поле1":"значение","Доп.поле2":"значение"} // для добавления дополнительных полей заказа
+				}
 			});
 			
 ##Формат вызова отправки сообщения
 Отправка сообщения находится по адресу https://{account_name}.getcourse.ru/pl/api/messages
 Для добавления сделки необходимо передать действие send, секретный ключ и параметры отправляемого сообщения:
-curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}.getcourse.dev/pl/api/deals" --data "action=add&key={secret_key}&params={params}"
+curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}.getcourse.dev/pl/api/messages" --data "action=send&key={secret_key}&params={params}"
 Параметры отправляемого мообщения должны включать:
 
 		base64_encode(
 			{
-				{"message":{
-					"email":{email пользователя},
-					"transport":{тип транспорта, поддерживаемые: "email"},
-					"mailing_id":{id рассылки},
-					"params":{"поле шаблона":{значение},} //можно переопределить поля шаблона, например first_name
-				},
+				"message":{
+					"email":"email пользователя",
+					"transport":"email", // тип транспорта
+					"mailing_id":"id рассылки",
+					"params":{"поле шаблона 1":"значение","поле шаблона 2":"значение"} // можно переопределить поля шаблона, например first_name
+				}
 			});
 		
 ##Формат ответа
 Ответ возвращается в формате JSON:
 
-				{
-					"success":{true/false}, // результат вызова
-					"action":{вызванное действие},
-					"result":{
-						"success":{true/false}, // результат действия
-						"user_id":{id пользователя},
-						"user_status":{статус пользователя},
-						"error_message":{сообщение об ошибке},
-						"error":{true/false}, // наличие ошибок
-					}
+			{
+				"success":"true/false", // результат вызова
+				"action":"вызванное действие",
+				"result":{
+					"success":"true/false", // результат действия
+					"user_id":"id пользователя",
+					"user_status":"статус пользователя",
+					"error_message":"сообщение об ошибке",
+					"error":"true/false", // наличие ошибок
 				}
+			}
 			
 
 
