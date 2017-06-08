@@ -167,7 +167,6 @@ class User extends Model
 		return $this;
 	}
 
-
 	/**
 	 * Параметры сессии
 	 * @param $utm_group
