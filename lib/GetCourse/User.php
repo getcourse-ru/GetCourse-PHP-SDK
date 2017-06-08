@@ -142,7 +142,7 @@ class User extends Model
 	 * @param $utm_medium
 	 * @return $this
 	 */
-	public function setSessionUtmMediun($utm_medium) {
+	public function setSessionUtmMedium($utm_medium) {
 		$this->session['utm_medium'] = $utm_medium;
 		return $this;
 	}
@@ -156,6 +156,17 @@ class User extends Model
 		$this->session['utm_campaign'] = $utm_campaign;
 		return $this;
 	}
+
+	/**
+	 * Параметры сессии
+	 * @param $utm_content
+	 * @return $this
+	 */
+	public function setSessionUtmContent($utm_content) {
+		$this->session['utm_content'] = $utm_content;
+		return $this;
+	}
+
 
 	/**
 	 * Параметры сессии
