@@ -169,6 +169,16 @@ class User extends Model
 
 	/**
 	 * Параметры сессии
+	 * @param $utm_term
+	 * @return $this
+	 */
+	public function setSessionUtmTerm($utm_term) {
+		$this->session['utm_term'] = $utm_term;
+		return $this;
+	}
+
+	/**
+	 * Параметры сессии
 	 * @param $utm_group
 	 * @return $this
 	 */
