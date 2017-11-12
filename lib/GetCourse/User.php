@@ -117,6 +117,16 @@ class User extends Model
 		return $this;
 	}
 
+
+	/**
+	 * Разрешить добавлять несколько предложений в заказ
+	 * @return $this
+	 */
+	public function setMultipleOffers() {
+		$this->system['multiple_offers'] = 1;
+		return $this;
+	}
+
 	/**
 	 * Добавить партнера
 	 * @param $partnerEmail
