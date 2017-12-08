@@ -128,6 +128,15 @@ class User extends Model
 	}
 
 	/**
+	 * Возвращать ссылку на оплату
+	 * @return $this
+	 */
+	public function setReturnPaymentLink() {
+		$this->system['return_payment_link'] = 1;
+		return $this;
+	}
+
+	/**
 	 * Добавить партнера
 	 * @param $partnerEmail
 	 * @return $this
