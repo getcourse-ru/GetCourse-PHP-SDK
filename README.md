@@ -51,7 +51,8 @@ curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}
 				"system":{
 					"refresh_if_exists":0, // обновлять ли существующего пользователя 1/0 да/нет
 					"partner_email":"email партнера",
-					"multiple_offers":0 // добавлять несколько предложений в заказ 1/0
+					"multiple_offers":0, // добавлять несколько предложений в заказ 1/0
+					"return_payment_link":0 // возвращать ссылку на оплату 1/0
 				},
 				"session":{
 					"utm_source":"",
