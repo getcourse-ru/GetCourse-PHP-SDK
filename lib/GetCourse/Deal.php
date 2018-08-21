@@ -160,6 +160,16 @@ class Deal extends User
 	}
 
 	/**
+	 * Добавить партнера заказа
+	 * @param $partnerEmail
+	 * @return $this
+	 */
+	public function setDealPartnerEmail($partnerEmail) {
+		$this->deal['partner_email'] = $partnerEmail;
+		return $this;
+	}
+
+	/**
 	 * Вызов api
 	 * @param $action
 	 * @return mixed

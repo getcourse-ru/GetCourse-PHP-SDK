@@ -137,7 +137,7 @@ class User extends Model
 	}
 
 	/**
-	 * Добавить партнера
+	 * Добавить партнера пользователя
 	 * @param $partnerEmail
 	 * @return $this
 	 */
