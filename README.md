@@ -14,7 +14,7 @@
 Если вы используете [Composer](http://getcomposer.org/), то добавьте в свой "composer.json":
 
 ```
-    "repositories": [
+   "repositories": [
         {
             "type": "git",
             "url": "https://github.com/getcourse-ru/GetCourse-PHP-SDK"
