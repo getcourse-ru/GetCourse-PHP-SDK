@@ -20,11 +20,21 @@ class Deal extends User
 
 	/**
 	 * Номер заказа
-	 * @param $email
+	 * @param $deal_number
 	 * @return $this
 	 */
 	public function setDealNumber($deal_number) {
 		$this->deal['deal_number'] = $deal_number;
+		return $this;
+	}
+	
+	/**
+	 * Статус заказа
+	 * @param $deal_status
+	 * @return $this
+	 */
+	public function setDealStatus($deal_status) {
+		$this->deal['deal_status'] = $deal_status;
 		return $this;
 	}
 
