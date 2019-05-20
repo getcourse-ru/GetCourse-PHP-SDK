@@ -105,7 +105,7 @@ class Model
 		foreach ($param as $k => $v) {
 			if ($v instanceof Model) {
 				$ret[$k] = $v->toArray();
-			} elseif (sizeof($v) <= 0 && is_array($v)) {
+			} elseif (is_array($v) && sizeof($v) <= 0) {
 				$ret[$k] = array();
 			} elseif (is_array($v)) {
 				$ret[$k] = $this->_convertToArray($v);
