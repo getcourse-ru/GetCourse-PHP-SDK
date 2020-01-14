@@ -9,7 +9,7 @@
   * PHP cURL extension с поддержкой SSL (обычно включена).
   * PHP JSON extension
 
-##Установка
+## Установка
 
 Если вы используете [Composer](http://getcomposer.org/), то добавьте в свой "composer.json":
 
@@ -24,22 +24,30 @@
      "getcourse-ru/GetCourse-PHP-SDK": "dev-master"
   }
 ```
-##Пример использования
-Находится в директории sample
 
-#Документация протокола
-##Протокол
+## Пример использования
+Находится в директории ```sample```
+
+# Документация протокола
+
+## Протокол
 Функции АПИ доступны только по ssl протоколу (https)
-##Авторизация
+
+## Авторизация
 Для авторизации необходимо передать секретный ключ как параметр key POST запроса
-##Действие
+
+## Действие
 Действие передается как параметр action POST запроса
-##Параметры
+
+## Параметры
 Параметры в формате base64 кодированной JSON строки передаются как параметр params POST запроса
-##Формат вызова импорта пользователя
-Импорт пользователя находится по адресу https://{account_name}.getcourse.ru/pl/api/users
+
+## Формат вызова импорта пользователя
+Импорт пользователя находится по адресу ```https://{account_name}.getcourse.ru/pl/api/users```
+
 Для добавления пользователя необходимо передать действие add, секретный ключ и параметры добавляемого пользователя:
-curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}.getcourse.dev/pl/api/users" --data "action=add&key={secret_key}&params={params}"
+```curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}.getcourse.dev/pl/api/users" --data "action=add&key={secret_key}&params={params}"```
+
 Параметры пользователя:
 
 		base64_encode(
@@ -73,10 +81,12 @@ curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}
 			});
 			
 
-##Формат вызова импорта сделки
+## Формат вызова импорта сделки
 Импорт сделки находится по адресу https://{account_name}.getcourse.ru/pl/api/deals
+
 Для добавления сделки необходимо передать действие add, секретный ключ и параметры добавляемого пользователя и сделки:
-curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}.getcourse.dev/pl/api/deals" --data "action=add&key={secret_key}&params={params}"
+```curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}.getcourse.dev/pl/api/deals" --data "action=add&key={secret_key}&params={params}"```
+
 Параметры сделки должны включать параметры пользователя и дополнительно параметры сделки с ключом deal:
 
 		base64_encode(
@@ -108,11 +118,13 @@ curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}
 				}
 			});
 			
-##Формат вызова отправки сообщения
+## Формат вызова отправки сообщения
 Отправка сообщения находится по адресу https://{account_name}.getcourse.ru/pl/api/messages
+
 Для добавления сделки необходимо передать действие send, секретный ключ и параметры отправляемого сообщения:
-curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}.getcourse.dev/pl/api/messages" --data "action=send&key={secret_key}&params={params}"
-Параметры отправляемого мообщения должны включать:
+```curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}.getcourse.dev/pl/api/messages" --data "action=send&key={secret_key}&params={params}"```
+
+Параметры отправляемого сообщения должны включать:
 
 		base64_encode(
 			{
@@ -124,7 +136,7 @@ curl -i -H "Accept: application/json; q=1.0, */*; q=0.1" "https://{account_name}
 				}
 			});
 		
-##Формат ответа
+## Формат ответа
 Ответ возвращается в формате JSON:
 
 			{
