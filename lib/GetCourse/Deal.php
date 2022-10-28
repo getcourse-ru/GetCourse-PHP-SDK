@@ -89,7 +89,7 @@ class Deal extends User
 	}
 
     /**
-     * Сумма заказа
+     * Валюта заказа
      * @param $deal_currency
      * @return $this
      */
