@@ -47,7 +47,7 @@ class Model
 			throw new \Exception("Account name and Domain not supplied");
 		}
 		if (self::$customDomain) {
-			return 'https://' . self::$customDomain . '/pl/api';
+			return 'https://' . self::$customDomain . '/pl/api/';
 		}
 		return 'https://' . self::$accountName . '.getcourse.ru/pl/api/';
 	}
