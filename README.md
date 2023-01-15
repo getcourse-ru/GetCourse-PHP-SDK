@@ -17,11 +17,11 @@
   "repositories": [
         {
             "type": "git",
-            "url": "https://github.com/getcourse-ru/GetCourse-PHP-SDK"
+            "url": "https://github.com/getcourse-ru/getcourse-php-sdk"
         }
     ],
   "require": {
-     "getcourse-ru/GetCourse-PHP-SDK": "dev-master"
+     "getcourse-ru/getcourse-php-sdk": "dev-master"
   }
 ```
 
