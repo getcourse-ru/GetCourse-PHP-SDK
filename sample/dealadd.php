@@ -9,6 +9,8 @@ $deal = new \GetCourse\Deal();
 
 // Замените на ваш аккаунт
 $deal::setAccountName('account_name');
+// или укажите свой домен, если в аккаунте настроен редирект с your_account.getcourse.ru на ваш домен my-domain.ru
+// $user::setCustomDomain('my-domain.ru')
 // Замените токен на сгенерированный вашим аккаунтом (http://{your_account}.getcourse.ru/saas/account/api)
 $deal::setAccessToken('secret_key');
 
