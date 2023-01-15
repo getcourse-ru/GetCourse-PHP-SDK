@@ -24,6 +24,11 @@ class Model
 	 * Название аккаунта GetCourse
 	 */
 	private static $accountName = '';
+	/**
+	 * Домен (будет использоваться вместо account_name.getcourse.ru)
+	 * Без https://, без `/` в конце
+	 */
+	private static string $customDomain = '';
 
 	public static function setAccessToken($accessToken)	{
 		self::$accessToken = $accessToken;
@@ -32,10 +37,17 @@ class Model
 	public static function setAccountName($accountName)	{
 		self::$accountName = $accountName;
 	}
+	
+	public static function setCustomDomain($domain)	{
+		self::$customDomain = $domain;
+	}
 
 	public static function getUrl() {
-		if(!self::$accountName) {
-			throw new \Exception("Account name not supplied");
+		if(!self::$accountName && !self::$customDomain) {
+			throw new \Exception("Account name and Domain not supplied");
+		}
+		if (self::$customDomain) {
+			return 'https://' . self::$customDomain . '/pl/api';
 		}
 		return 'https://' . self::$accountName . '.getcourse.ru/pl/api/';
 	}
