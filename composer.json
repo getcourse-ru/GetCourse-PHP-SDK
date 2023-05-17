@@ -1,5 +1,5 @@
 {
-  "name": "getcourse-ru/GetCourse-PHP-SDK",
+  "name": "xdemonme/get-course-php-sdk",
   "description": "GetCourse's PHP SDK for APIs",
   "keywords": ["getcourse", "api", "sdk"],
   "type": "library",
