@@ -27,7 +27,7 @@ class Deal extends User
 		$this->deal['deal_number'] = $deal_number;
 		return $this;
 	}
-	
+
 	/**
 	 * Статус заказа
 	 * @param $deal_status
@@ -68,11 +68,11 @@ class Deal extends User
 		return $this;
 	}
 
-	/**
-	 * Дата оплаты/завершения заказа
-	 * @param $date_created_at
-	 * @return $this
-	 */
+    /**
+     * Дата оплаты/завершения заказа
+     * @param $date_finished_at
+     * @return $this
+     */
 	public function setDateFinished($date_finished_at) {
 		$this->deal['deal_finished_at'] = $date_finished_at;
 		return $this;
@@ -88,11 +88,22 @@ class Deal extends User
 		return $this;
 	}
 
-	/**
-	 * Наименование предложения
-	 * @param $deal_cost
-	 * @return $this
-	 */
+    /**
+     * Валюта заказа
+     * @param $deal_currency
+     * @return $this
+     */
+    public function setDealCurrency($deal_currency)
+    {
+        $this->deal['deal_currency'] = $deal_currency;
+        return $this;
+    }
+
+    /**
+     * Наименование предложения
+     * @param $product_title
+     * @return $this
+     */
 	public function setProductTitle($product_title) {
 		$this->deal['product_title'] = $product_title;
 		return $this;
@@ -179,11 +190,12 @@ class Deal extends User
 		return $this;
 	}
 
-	/**
-	 * Вызов api
-	 * @param $action
-	 * @return mixed
-	 */
+    /**
+     * Вызов api
+     * @param $action
+     * @return mixed
+     * @throws \Exception
+     */
 	public function apiCall( $action ) {
 		return $this->executeCall(self::getUrl().'deals', $action);
 	}
