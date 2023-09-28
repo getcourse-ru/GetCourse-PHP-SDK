@@ -1,6 +1,6 @@
 {
   "name": "xdemonme/getcourse-php-sdk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "GetCourse's PHP SDK for APIs",
   "keywords": ["getcourse", "api", "sdk"],
   "type": "library",
