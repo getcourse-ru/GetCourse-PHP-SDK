@@ -5,7 +5,7 @@
 
 Системные требования:
 
-  * PHP 5.4+
+  * PHP 8.0+
   * PHP cURL extension с поддержкой SSL (обычно включена).
   * PHP JSON extension
 
@@ -14,15 +14,19 @@
 Если вы используете [Composer](http://getcomposer.org/), то добавьте в свой "composer.json":
 
 ```
-  "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/xDemonME/GetCourse-PHP-SDK"
-        }
-    ],
   "require": {
-     "getcourse-ru/getcourse-php-sdk": "dev-master"
+     "xdemonme/getcourse-php-sdk": "^0.0.2"
   }
+```
+
+и запустите `composer update` для установки
+
+**или**
+
+запустите эту команду в командной строке вашего проекта:
+
+```shell
+composer require xdemonme/getcourse-php-sdk
 ```
 
 ## Пример использования
