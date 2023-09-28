@@ -39,7 +39,7 @@ class Model
 		}
         $account = self::$accountName;
 
-        if (str_contains(self::$accountName, 'getcourse.io') || str_contains(self::$accountName, 'getcourse.ru')) {
+        if (!str_contains(self::$accountName, 'getcourse.io') && !str_contains(self::$accountName, 'getcourse.ru')) {
             $account .= '.getcourse.ru';
         }
 		return 'https://' . $account . '/pl/api/';
